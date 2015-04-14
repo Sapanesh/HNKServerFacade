@@ -3,7 +3,7 @@
 
 target 'HNKServerFacade-Example' do
 
-pod 'HNKServerFacade', :git => 'https://github.com/hkellaway/HNKServerFacade.git'
+pod 'HNKServerFacade'
 
 end
 

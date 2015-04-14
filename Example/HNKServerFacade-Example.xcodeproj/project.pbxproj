@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BC9E52892DA773649771037F /* libPods-HNKServerFacade-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB63163FAA4405C04737A3CE /* libPods-HNKServerFacade-Example.a */; };
 		DC8674061ADCA6B30031DC9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8674051ADCA6B30031DC9E /* main.m */; };
 		DC8674091ADCA6B30031DC9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8674081ADCA6B30031DC9E /* AppDelegate.m */; };
 		DC86740C1ADCA6B30031DC9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC86740B1ADCA6B30031DC9E /* ViewController.m */; };
@@ -27,6 +28,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D627B3156B9C349E3718181 /* Pods-HNKServerFacade-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKServerFacade-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HNKServerFacade-Example/Pods-HNKServerFacade-Example.release.xcconfig"; sourceTree = "<group>"; };
+		4606270ACC4D38CD6F7DEF46 /* Pods-HNKServerFacade-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKServerFacade-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HNKServerFacade-Example/Pods-HNKServerFacade-Example.debug.xcconfig"; sourceTree = "<group>"; };
+		BB63163FAA4405C04737A3CE /* libPods-HNKServerFacade-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HNKServerFacade-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8674001ADCA6B30031DC9E /* HNKServerFacade-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HNKServerFacade-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8674041ADCA6B30031DC9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC8674051ADCA6B30031DC9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -47,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BC9E52892DA773649771037F /* libPods-HNKServerFacade-Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,12 +65,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4C7F3DD917368862C9D2E210 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BB63163FAA4405C04737A3CE /* libPods-HNKServerFacade-Example.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		DC8673F71ADCA6B30031DC9E = {
 			isa = PBXGroup;
 			children = (
 				DC8674021ADCA6B30031DC9E /* HNKServerFacade-Example */,
 				DC86741C1ADCA6B30031DC9E /* HNKServerFacade-ExampleTests */,
 				DC8674011ADCA6B30031DC9E /* Products */,
+				EF29D7D35DD78CFBBC84D5DF /* Pods */,
+				4C7F3DD917368862C9D2E210 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -119,6 +134,15 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		EF29D7D35DD78CFBBC84D5DF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4606270ACC4D38CD6F7DEF46 /* Pods-HNKServerFacade-Example.debug.xcconfig */,
+				0D627B3156B9C349E3718181 /* Pods-HNKServerFacade-Example.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -126,9 +150,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DC8674231ADCA6B30031DC9E /* Build configuration list for PBXNativeTarget "HNKServerFacade-Example" */;
 			buildPhases = (
+				DB37DA397C0290931D00AB2C /* Check Pods Manifest.lock */,
 				DC8673FC1ADCA6B30031DC9E /* Sources */,
 				DC8673FD1ADCA6B30031DC9E /* Frameworks */,
 				DC8673FE1ADCA6B30031DC9E /* Resources */,
+				F524CB7CB10C207C43023336 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -213,6 +239,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DB37DA397C0290931D00AB2C /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F524CB7CB10C207C43023336 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HNKServerFacade-Example/Pods-HNKServerFacade-Example-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DC8673FC1ADCA6B30031DC9E /* Sources */ = {
@@ -343,6 +402,7 @@
 		};
 		DC8674241ADCA6B30031DC9E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4606270ACC4D38CD6F7DEF46 /* Pods-HNKServerFacade-Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "HNKServerFacade-Example/Info.plist";
@@ -353,6 +413,7 @@
 		};
 		DC8674251ADCA6B30031DC9E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0D627B3156B9C349E3718181 /* Pods-HNKServerFacade-Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "HNKServerFacade-Example/Info.plist";
@@ -414,6 +475,7 @@
 				DC8674251ADCA6B30031DC9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DC8674261ADCA6B30031DC9E /* Build configuration list for PBXNativeTarget "HNKServerFacade-ExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -422,6 +484,7 @@
 				DC8674281ADCA6B30031DC9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -4,4 +4,4 @@ install:
   - brew install xctool --HEAD
 
 script:
-   - xctool test -project Example/HNKServerFacade-Example.xcodeproj -scheme HNKServerFacade-Example -sdk iphonesimulator8.1
+   - xctool test -workspace Example/HNKServerFacade-Example.xcworkspace -scheme HNKServerFacade-Example -sdk iphonesimulator8.1

@@ -1,0 +1,10 @@
+PODS:
+  - HNKServerFacade (0.0.1)
+
+DEPENDENCIES:
+  - HNKServerFacade
+
+SPEC CHECKSUMS:
+  HNKServerFacade: aa0c398bbaf05c1cbbdaaf7ef8e1e8e5ac6287bc
+
+COCOAPODS: 0.36.3
