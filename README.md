@@ -7,8 +7,10 @@
 
 Simple server interface for iOS
 
+Inspired by http://supermar.in/isolating-network-inside-your-app/
+
 #### Podfile
 
 ```ruby
-pod "HNKServerFacade", "~> 0.1"
+pod "HNKServerFacade", "~> 0.2"
 ```

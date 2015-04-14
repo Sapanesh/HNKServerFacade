@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BC9E52892DA773649771037F /* libPods-HNKServerFacade-Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = BB63163FAA4405C04737A3CE /* libPods-HNKServerFacade-Example.a */; };
+		DC3908A11ADD6C8F00ED26C9 /* _clang-format in Resources */ = {isa = PBXBuildFile; fileRef = DC3908A01ADD6C8F00ED26C9 /* _clang-format */; };
 		DC8674061ADCA6B30031DC9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8674051ADCA6B30031DC9E /* main.m */; };
 		DC8674091ADCA6B30031DC9E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = DC8674081ADCA6B30031DC9E /* AppDelegate.m */; };
 		DC86740C1ADCA6B30031DC9E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = DC86740B1ADCA6B30031DC9E /* ViewController.m */; };
@@ -31,6 +32,7 @@
 		0D627B3156B9C349E3718181 /* Pods-HNKServerFacade-Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKServerFacade-Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-HNKServerFacade-Example/Pods-HNKServerFacade-Example.release.xcconfig"; sourceTree = "<group>"; };
 		4606270ACC4D38CD6F7DEF46 /* Pods-HNKServerFacade-Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HNKServerFacade-Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HNKServerFacade-Example/Pods-HNKServerFacade-Example.debug.xcconfig"; sourceTree = "<group>"; };
 		BB63163FAA4405C04737A3CE /* libPods-HNKServerFacade-Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-HNKServerFacade-Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DC3908A01ADD6C8F00ED26C9 /* _clang-format */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "_clang-format"; sourceTree = "<group>"; };
 		DC8674001ADCA6B30031DC9E /* HNKServerFacade-Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "HNKServerFacade-Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DC8674041ADCA6B30031DC9E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC8674051ADCA6B30031DC9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -111,6 +113,7 @@
 		DC8674031ADCA6B30031DC9E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				DC3908A01ADD6C8F00ED26C9 /* _clang-format */,
 				DC8674041ADCA6B30031DC9E /* Info.plist */,
 				DC8674051ADCA6B30031DC9E /* main.m */,
 			);
@@ -228,6 +231,7 @@
 				DC86740F1ADCA6B30031DC9E /* Main.storyboard in Resources */,
 				DC8674141ADCA6B30031DC9E /* LaunchScreen.xib in Resources */,
 				DC8674111ADCA6B30031DC9E /* Images.xcassets in Resources */,
+				DC3908A11ADD6C8F00ED26C9 /* _clang-format in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
