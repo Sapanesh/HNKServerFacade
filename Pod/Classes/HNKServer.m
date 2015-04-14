@@ -44,9 +44,9 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 
     httpSessionManager = [[AFHTTPSessionManager alloc]
         initWithBaseURL:[NSURL URLWithString:baseURLString]];
+
     httpSessionManager.responseSerializer.acceptableContentTypes =
-        [NSSet setWithObjects:@"application/json", @"text/html",
-                              nil]; // TODO: Make configurable
+        [NSSet setWithObject:@"application/json"];
   });
 }
 
@@ -54,6 +54,19 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 
 + (NSString *)baseURLString {
   return baseURLStr;
+}
+
++ (NSSet *)responseContentTypes {
+  return httpSessionManager.responseSerializer.acceptableContentTypes;
+}
+
+#pragma mark Configuration
+
++ (void)configureResponseContentTypes:(NSSet *)newContentTypes {
+  NSParameterAssert(newContentTypes);
+
+  httpSessionManager.responseSerializer.acceptableContentTypes =
+      newContentTypes;
 }
 
 #pragma mark Requests
