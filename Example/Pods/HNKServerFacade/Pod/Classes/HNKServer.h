@@ -32,17 +32,35 @@
  */
 + (NSString *)baseURLString;
 
+/**
+ *  The MIME types this Server will accept in request responses
+ */
++ (NSSet *)responseContentTypes;
+
 #pragma mark - Initialization
 
 /**
  *  Sets up Server with provided base URL
  *
+ *  Note: The base URL for the Server cannot be reset once setup
+ *
  *  @param baseURLString Base URL for the Server
  *
- *  @warning The base URL for the Server cannot be reset once setup
  *  @warning baseURLString cannot be nil
  */
 + (void)setupWithBaseUrl:(NSString *)baseURLString;
+
+#pragma mark - Configuration
+
+/**
+ *  Sets the acceptable MIME types for Server request responses
+ *
+ *  The default is solely "application/json"
+ *
+ *  @warning The default "application/json" will not remain if overriding;
+ *  make sure to include "application/json" in your override values if desired
+ */
++ (void)configureResponseContentTypes:(NSSet *)newContentTypes;
 
 #pragma mark - Requests
 
@@ -51,7 +69,7 @@
  *
  *  @param path       Path to GET from
  *  @param parameters Request parameters
- *  @param completion A block to be executed when the request finishes
+ *  @param completion Block to be executed when the request finishes
  */
 + (void)GET:(NSString *)path
     parameters:(NSDictionary *)parameters
