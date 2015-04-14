@@ -31,6 +31,7 @@
 
 #pragma mark - Initialization
 
+static NSString *baseURLStr = @"";
 static AFHTTPSessionManager *httpSessionManager = nil;
 
 + (void)setupWithBaseUrl:(NSString *)baseURLString {
@@ -39,9 +40,16 @@ static AFHTTPSessionManager *httpSessionManager = nil;
   dispatch_once(&onceToken, ^{
     NSParameterAssert(baseURLString);
 
-    httpSessionManager =
-        [[self alloc] initWithBaseURL:[NSURL URLWithString:baseURLString]];
+    baseURLStr = [[NSURL URLWithString:baseURLString] absoluteString];
+    httpSessionManager = [[AFHTTPSessionManager alloc]
+        initWithBaseURL:[NSURL URLWithString:baseURLString]];
   });
+}
+
+#pragma mark - Class methods
+
++ (NSString *)baseURLString {
+  return baseURLStr;
 }
 
 @end

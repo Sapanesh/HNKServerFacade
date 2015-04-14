@@ -27,10 +27,15 @@
 
 @interface HNKServer : NSObject
 
+/**
+ *  The base URL for the Server
+ */
++ (NSString *)baseURLString;
+
 #pragma mark - Initialization
 
 /**
- *  Sets up shared Server instance with provided base URL
+ *  Sets up Server instance with provided base URL
  *
  *  @param baseURLString Base URL for the Server
  *
