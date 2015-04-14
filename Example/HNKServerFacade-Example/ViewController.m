@@ -8,20 +8,37 @@
 
 #import "ViewController.h"
 
+#import <HNKServerFacade/HNKServerFacade.h>
+
 @interface ViewController ()
 
 @end
 
 @implementation ViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+- (void)viewDidLoad
+{
+  [super viewDidLoad];
+
+  [HNKServer setupWithBaseUrl:@"http://harlankellaway.com/documents/projects"];
+
+  [HNKServer GET:@"test.json"
+      parameters:nil
+      completion:^(id responseObject, NSError *error) {
+
+        if (error) {
+          NSLog(@"HNKServerFacade-Example ERROR: %@", error);
+        } else {
+          NSLog(@"HNKServerFacade-Example JSON: %@", responseObject);
+        }
+
+      }];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)didReceiveMemoryWarning
+{
+  [super didReceiveMemoryWarning];
+  // Dispose of any resources that can be recreated.
 }
 
 @end
