@@ -41,8 +41,12 @@ static AFHTTPSessionManager *httpSessionManager = nil;
     NSParameterAssert(baseURLString);
 
     baseURLStr = [[NSURL URLWithString:baseURLString] absoluteString];
+
     httpSessionManager = [[AFHTTPSessionManager alloc]
         initWithBaseURL:[NSURL URLWithString:baseURLString]];
+    httpSessionManager.responseSerializer.acceptableContentTypes =
+        [NSSet setWithObjects:@"application/json", @"text/html",
+                              nil]; // TODO: Make configurable
   });
 }
 
@@ -50,6 +54,33 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 
 + (NSString *)baseURLString {
   return baseURLStr;
+}
+
+#pragma mark Requests
+
++ (void)GET:(NSString *)path
+    parameters:(NSDictionary *)parameters
+    completion:(void (^)(id responseObject, NSError *))completion {
+  NSString *urlString = [self urlStringFromPath:path];
+
+  [httpSessionManager GET:urlString
+      parameters:parameters
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+        if (completion) {
+          completion(responseObject, nil);
+        }
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+        if (completion) {
+          completion(nil, error);
+        }
+      }];
+}
+
+#pragma mark - Helpers
+
++ (NSString *)urlStringFromPath:(NSString *)path {
+  return [baseURLStr stringByAppendingPathComponent:path];
 }
 
 @end

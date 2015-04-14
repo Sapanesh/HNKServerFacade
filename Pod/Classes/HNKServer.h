@@ -35,12 +35,26 @@
 #pragma mark - Initialization
 
 /**
- *  Sets up Server instance with provided base URL
+ *  Sets up Server with provided base URL
  *
  *  @param baseURLString Base URL for the Server
  *
+ *  @warning The base URL for the Server cannot be reset once setup
  *  @warning baseURLString cannot be nil
  */
 + (void)setupWithBaseUrl:(NSString *)baseURLString;
+
+#pragma mark - Requests
+
+/**
+ *  Performs a GET request to the Server
+ *
+ *  @param path       Path to GET from
+ *  @param parameters Request parameters
+ *  @param completion A block to be executed when the request finishes
+ */
++ (void)GET:(NSString *)path
+    parameters:(NSDictionary *)parameters
+    completion:(void (^)(id responseObject, NSError *error))completion;
 
 @end
