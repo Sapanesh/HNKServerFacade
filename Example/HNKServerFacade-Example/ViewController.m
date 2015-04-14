@@ -22,6 +22,13 @@
 
   [HNKServer setupWithBaseUrl:@"http://harlankellaway.com/documents/projects"];
 
+  NSLog(@"Initial response content types: %@", [HNKServer responseContentTypes]);
+
+  [HNKServer
+      configureResponseContentTypes:[NSSet setWithObjects:@"application/json", @"text/html", nil]];
+
+  NSLog(@"Content types after override: %@", [HNKServer responseContentTypes]);
+
   [HNKServer GET:@"test.json"
       parameters:nil
       completion:^(id responseObject, NSError *error) {
