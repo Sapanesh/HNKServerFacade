@@ -1,10 +1,33 @@
 PODS:
-  - HNKServerFacade (0.0.1)
+  - AFNetworking (2.5.2):
+    - AFNetworking/NSURLConnection (= 2.5.2)
+    - AFNetworking/NSURLSession (= 2.5.2)
+    - AFNetworking/Reachability (= 2.5.2)
+    - AFNetworking/Security (= 2.5.2)
+    - AFNetworking/Serialization (= 2.5.2)
+    - AFNetworking/UIKit (= 2.5.2)
+  - AFNetworking/NSURLConnection (2.5.2):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.2):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.2)
+  - AFNetworking/Security (2.5.2)
+  - AFNetworking/Serialization (2.5.2)
+  - AFNetworking/UIKit (2.5.2):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
+  - HNKServerFacade (0.1):
+    - AFNetworking (~> 2.5)
 
 DEPENDENCIES:
-  - HNKServerFacade
+  - HNKServerFacade (~> 0.1)
 
 SPEC CHECKSUMS:
-  HNKServerFacade: aa0c398bbaf05c1cbbdaaf7ef8e1e8e5ac6287bc
+  AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
+  HNKServerFacade: df4c00001d9fed8176965cb1fa70272e02dc5ecf
 
 COCOAPODS: 0.36.3
