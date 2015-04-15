@@ -32,7 +32,7 @@
 
 #pragma mark - Initialization
 
-static NSString *baseURLStr = @"";
+static NSString *baseURLStr = nil;
 static AFHTTPSessionManager *httpSessionManager = nil;
 
 + (void)setupWithBaseUrl:(NSString *)baseURLString {
@@ -46,20 +46,6 @@ static AFHTTPSessionManager *httpSessionManager = nil;
     [self setupHttpSessionManager];
     [self setupNetworkActivityIndicator];
   });
-}
-
-+ (void)setupHttpSessionManager {
-  if (httpSessionManager == nil) {
-    httpSessionManager = [[AFHTTPSessionManager alloc]
-        initWithBaseURL:[NSURL URLWithString:baseURLStr]];
-  }
-
-  httpSessionManager.responseSerializer.acceptableContentTypes =
-      [NSSet setWithObject:@"application/json"];
-}
-
-+ (void)setupNetworkActivityIndicator {
-  [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }
 
 #pragma mark - Class methods
@@ -107,6 +93,20 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 }
 
 #pragma mark - Helpers
+
++ (void)setupHttpSessionManager {
+  if (httpSessionManager == nil) {
+    httpSessionManager = [[AFHTTPSessionManager alloc]
+        initWithBaseURL:[NSURL URLWithString:baseURLStr]];
+  }
+
+  httpSessionManager.responseSerializer.acceptableContentTypes =
+      [NSSet setWithObject:@"application/json"];
+}
+
++ (void)setupNetworkActivityIndicator {
+  [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+}
 
 + (NSString *)urlStringFromPath:(NSString *)path {
   return [baseURLStr stringByAppendingPathComponent:path];

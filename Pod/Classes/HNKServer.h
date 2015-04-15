@@ -69,8 +69,10 @@
  *
  *  The default is solely `application/json`
  *
- *  @warning The default `application/json` will be overwritten by this method;
+ *  The default `application/json` will be overwritten by this method;
  *  make sure to include `application/json` in `newContentTypes` if desired
+ *
+ *  @warning The newContentTypes provided cannot be nil
  */
 + (void)configureResponseContentTypes:(NSSet *)newContentTypes;
 
