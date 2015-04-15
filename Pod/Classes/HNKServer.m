@@ -59,13 +59,17 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 }
 
 + (void)setupNetworkActivityIndicator {
-  [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+  [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }
 
 #pragma mark - Class methods
 
 + (NSString *)baseURLString {
   return baseURLStr;
+}
+
++ (BOOL)isNetworkActivityIndicatorEnabled {
+  return [AFNetworkActivityIndicatorManager sharedManager].isEnabled;
 }
 
 + (NSSet *)responseContentTypes {

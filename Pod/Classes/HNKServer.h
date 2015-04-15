@@ -27,16 +27,6 @@
 
 @interface HNKServer : NSObject
 
-/**
- *  The base URL for the Server
- */
-+ (NSString *)baseURLString;
-
-/**
- *  The MIME types this Server will accept in request responses
- */
-+ (NSSet *)responseContentTypes;
-
 #pragma mark - Initialization
 
 /**
@@ -51,6 +41,28 @@
 + (void)setupWithBaseUrl:(NSString *)baseURLString;
 
 #pragma mark - Configuration
+
+#pragma mark Properties
+
+/**
+ *  The base URL for the Server
+ */
++ (NSString *)baseURLString;
+
+/**
+ *  Whether the network activity indicator will display in the status bar during
+ *  Server requests
+ *
+ *  Note: The default is YES
+ */
++ (BOOL)isNetworkActivityIndicatorEnabled;
+
+/**
+ *  The MIME types this Server will accept in request responses
+ */
++ (NSSet *)responseContentTypes;
+
+#pragma mark Methods
 
 /**
  *  Sets the acceptable MIME types for Server request responses
