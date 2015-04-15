@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HNKServerFacade"
-  s.version      = "0.2.0"
+  s.version      = "0.2.1"
   s.summary      = "Simple server interface for iOS"
   s.homepage     = "https://github.com/hkellaway/HNKServerFacade"
   s.license      = { :type => "MIT", :file => "LICENSE" }
