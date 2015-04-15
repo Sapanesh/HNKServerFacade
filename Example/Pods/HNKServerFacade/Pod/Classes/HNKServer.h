@@ -27,16 +27,6 @@
 
 @interface HNKServer : NSObject
 
-/**
- *  The base URL for the Server
- */
-+ (NSString *)baseURLString;
-
-/**
- *  The MIME types this Server will accept in request responses
- */
-+ (NSSet *)responseContentTypes;
-
 #pragma mark - Initialization
 
 /**
@@ -46,19 +36,43 @@
  *
  *  @param baseURLString Base URL for the Server
  *
- *  @warning baseURLString cannot be nil
+ *  @warning The base URL provided cannot be nil
  */
 + (void)setupWithBaseUrl:(NSString *)baseURLString;
 
 #pragma mark - Configuration
 
+#pragma mark Properties
+
+/**
+ *  The base URL for the Server
+ */
++ (NSString *)baseURLString;
+
+/**
+ *  Whether the network activity indicator will display in the status bar during
+ *  Server requests
+ *
+ *  Note: The default is YES
+ */
++ (BOOL)isNetworkActivityIndicatorEnabled;
+
+/**
+ *  The MIME types this Server will accept in request responses
+ */
++ (NSSet *)responseContentTypes;
+
+#pragma mark Methods
+
 /**
  *  Sets the acceptable MIME types for Server request responses
  *
- *  The default is solely "application/json"
+ *  The default is solely `application/json`
  *
- *  @warning The default "application/json" will not remain if overriding;
- *  make sure to include "application/json" in your override values if desired
+ *  The default `application/json` will be overwritten by this method;
+ *  make sure to include `application/json` in `newContentTypes` if desired
+ *
+ *  @warning The newContentTypes provided cannot be nil
  */
 + (void)configureResponseContentTypes:(NSSet *)newContentTypes;
 
