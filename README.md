@@ -7,10 +7,16 @@
 
 Simple server interface for iOS
 
-Inspired by http://supermar.in/isolating-network-inside-your-app/
-
 #### Podfile
 
 ```ruby
 pod "HNKServerFacade", "~> 0.2"
 ```
+
+## Credits
+
+HNKServerFacade was created by [Harlan Kellaway](http://harlankellaway.com) with inspiration from http://supermar.in/isolating-network-inside-your-app/
+
+## License
+
+HNKServerFacade is available under the MIT license. See the [LICENSE](https://raw.githubusercontent.com/hkellaway/HNKServerFacade/master/LICENSE) file for more info.

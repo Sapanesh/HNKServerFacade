@@ -25,16 +25,16 @@ PODS:
 
 DEPENDENCIES:
   - HNKServerFacade (from `https://github.com/hkellaway/HNKServerFacade.git`, branch
-    `release/0.2.0`)
+    `release/0.2.1`)
 
 EXTERNAL SOURCES:
   HNKServerFacade:
-    :branch: release/0.2.0
+    :branch: release/0.2.1
     :git: https://github.com/hkellaway/HNKServerFacade.git
 
 CHECKOUT OPTIONS:
   HNKServerFacade:
-    :commit: 0e993f8c45086387c74cb6aaac2437a1a2cd2ae1
+    :commit: 48124ee64e4cdade1c4b2bc77d2a2f0e2857aec8
     :git: https://github.com/hkellaway/HNKServerFacade.git
 
 SPEC CHECKSUMS:

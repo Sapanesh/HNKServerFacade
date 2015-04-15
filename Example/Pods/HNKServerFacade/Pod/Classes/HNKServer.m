@@ -26,12 +26,13 @@
 #import "HNKServer.h"
 
 #import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 @implementation HNKServer
 
 #pragma mark - Initialization
 
-static NSString *baseURLStr = @"";
+static NSString *baseURLStr = nil;
 static AFHTTPSessionManager *httpSessionManager = nil;
 
 + (void)setupWithBaseUrl:(NSString *)baseURLString {
@@ -42,11 +43,8 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 
     baseURLStr = [[NSURL URLWithString:baseURLString] absoluteString];
 
-    httpSessionManager = [[AFHTTPSessionManager alloc]
-        initWithBaseURL:[NSURL URLWithString:baseURLString]];
-
-    httpSessionManager.responseSerializer.acceptableContentTypes =
-        [NSSet setWithObject:@"application/json"];
+    [self setupHttpSessionManager];
+    [self setupNetworkActivityIndicator];
   });
 }
 
@@ -54,6 +52,10 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 
 + (NSString *)baseURLString {
   return baseURLStr;
+}
+
++ (BOOL)isNetworkActivityIndicatorEnabled {
+  return [AFNetworkActivityIndicatorManager sharedManager].isEnabled;
 }
 
 + (NSSet *)responseContentTypes {
@@ -91,6 +93,20 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 }
 
 #pragma mark - Helpers
+
++ (void)setupHttpSessionManager {
+  if (httpSessionManager == nil) {
+    httpSessionManager = [[AFHTTPSessionManager alloc]
+        initWithBaseURL:[NSURL URLWithString:baseURLStr]];
+  }
+
+  httpSessionManager.responseSerializer.acceptableContentTypes =
+      [NSSet setWithObject:@"application/json"];
+}
+
++ (void)setupNetworkActivityIndicator {
+  [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+}
 
 + (NSString *)urlStringFromPath:(NSString *)path {
   return [baseURLStr stringByAppendingPathComponent:path];
