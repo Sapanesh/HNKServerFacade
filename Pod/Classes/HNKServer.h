@@ -46,7 +46,7 @@
  *
  *  @param baseURLString Base URL for the Server
  *
- *  @warning baseURLString cannot be nil
+ *  @warning The base URL provided cannot be nil
  */
 + (void)setupWithBaseUrl:(NSString *)baseURLString;
 
@@ -55,10 +55,10 @@
 /**
  *  Sets the acceptable MIME types for Server request responses
  *
- *  The default is solely "application/json"
+ *  The default is solely `application/json`
  *
- *  @warning The default "application/json" will not remain if overriding;
- *  make sure to include "application/json" in your override values if desired
+ *  @warning The default `application/json` will be overwritten by this method;
+ *  make sure to include `application/json` in `newContentTypes` if desired
  */
 + (void)configureResponseContentTypes:(NSSet *)newContentTypes;
 

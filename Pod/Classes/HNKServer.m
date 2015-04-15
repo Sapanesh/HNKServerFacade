@@ -26,6 +26,7 @@
 #import "HNKServer.h"
 
 #import <AFNetworking/AFNetworking.h>
+#import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
 @implementation HNKServer
 
@@ -42,12 +43,23 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 
     baseURLStr = [[NSURL URLWithString:baseURLString] absoluteString];
 
-    httpSessionManager = [[AFHTTPSessionManager alloc]
-        initWithBaseURL:[NSURL URLWithString:baseURLString]];
-
-    httpSessionManager.responseSerializer.acceptableContentTypes =
-        [NSSet setWithObject:@"application/json"];
+    [self setupHttpSessionManager];
+    [self setupNetworkActivityIndicator];
   });
+}
+
++ (void)setupHttpSessionManager {
+  if (httpSessionManager == nil) {
+    httpSessionManager = [[AFHTTPSessionManager alloc]
+        initWithBaseURL:[NSURL URLWithString:baseURLStr]];
+  }
+
+  httpSessionManager.responseSerializer.acceptableContentTypes =
+      [NSSet setWithObject:@"application/json"];
+}
+
++ (void)setupNetworkActivityIndicator {
+  [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
 }
 
 #pragma mark - Class methods
