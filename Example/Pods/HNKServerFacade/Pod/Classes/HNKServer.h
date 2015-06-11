@@ -38,7 +38,7 @@
  *
  *  @warning The base URL provided cannot be nil
  */
-+ (void)setupWithBaseUrl:(NSString *)baseURLString;
++ (void)setupWithBaseURL:(NSString *)baseURLString;
 
 #pragma mark - Configuration
 
