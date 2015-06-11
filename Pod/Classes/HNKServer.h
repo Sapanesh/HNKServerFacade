@@ -32,6 +32,8 @@
 /**
  *  Returns an HNKServer instance with the provided base URL
  *
+ *  Note: This is the designated initializer
+ *
  *  @param baseUrlString Base URL for Server
  *
  *  @return HNKServer instance with provided base URL

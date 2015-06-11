@@ -28,6 +28,9 @@
 #import <AFNetworking/AFNetworking.h>
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
 
+static NSString *const kHNKExceptionInvalidInitializer = @"HNKExceptionInvalidInitializer";
+static NSString *const kHNKExceptionTextInvalidInitializer = @"-initWithBaseURL: should be used for Server initialization";
+
 @implementation HNKServer
 
 #pragma mark - Initialization
@@ -47,6 +50,15 @@ static AFHTTPSessionManager *httpSessionManager = nil;
     }
     
     return self;
+}
+
+- (instancetype)init
+{
+    NSException *exception = [NSException exceptionWithName:kHNKExceptionInvalidInitializer reason:kHNKExceptionTextInvalidInitializer userInfo:nil];
+    
+    [exception raise];
+    
+    return nil;
 }
 
 #pragma mark - Class methods

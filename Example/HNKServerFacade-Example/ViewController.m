@@ -40,6 +40,15 @@
         }
 
       }];
+    
+    HNKServer *invalidServer = nil;
+    
+    @try {
+        invalidServer = [[HNKServer alloc] init];
+    }
+    @catch (NSException *exception) {
+        NSLog(@"%@", exception);
+    }
 }
 
 - (void)didReceiveMemoryWarning
