@@ -1,44 +1,44 @@
 PODS:
-  - AFNetworking (2.5.2):
-    - AFNetworking/NSURLConnection (= 2.5.2)
-    - AFNetworking/NSURLSession (= 2.5.2)
-    - AFNetworking/Reachability (= 2.5.2)
-    - AFNetworking/Security (= 2.5.2)
-    - AFNetworking/Serialization (= 2.5.2)
-    - AFNetworking/UIKit (= 2.5.2)
-  - AFNetworking/NSURLConnection (2.5.2):
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/NSURLSession (2.5.2):
+  - AFNetworking/NSURLSession (2.5.4):
     - AFNetworking/Reachability
     - AFNetworking/Security
     - AFNetworking/Serialization
-  - AFNetworking/Reachability (2.5.2)
-  - AFNetworking/Security (2.5.2)
-  - AFNetworking/Serialization (2.5.2)
-  - AFNetworking/UIKit (2.5.2):
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - HNKServerFacade (0.2.0):
+  - HNKServerFacade (0.3.0):
     - AFNetworking (~> 2.5)
 
 DEPENDENCIES:
   - HNKServerFacade (from `https://github.com/hkellaway/HNKServerFacade.git`, branch
-    `release/0.2.1`)
+    `release/0.3.0`)
 
 EXTERNAL SOURCES:
   HNKServerFacade:
-    :branch: release/0.2.1
+    :branch: release/0.3.0
     :git: https://github.com/hkellaway/HNKServerFacade.git
 
 CHECKOUT OPTIONS:
   HNKServerFacade:
-    :commit: 48124ee64e4cdade1c4b2bc77d2a2f0e2857aec8
+    :commit: 3d864c598b4f04b65ede73777995990706d29f48
     :git: https://github.com/hkellaway/HNKServerFacade.git
 
 SPEC CHECKSUMS:
-  AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
-  HNKServerFacade: ffb9825fcacf8b418ac04fb5ee44e51d34f76f66
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
+  HNKServerFacade: 0fa3839353480b8862563a34903ad1406a38b4c9
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.37.1
