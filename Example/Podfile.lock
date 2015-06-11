@@ -20,25 +20,25 @@ PODS:
   - AFNetworking/UIKit (2.5.4):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
-  - HNKServerFacade (0.2.1):
+  - HNKServerFacade (0.3.0):
     - AFNetworking (~> 2.5)
 
 DEPENDENCIES:
   - HNKServerFacade (from `https://github.com/hkellaway/HNKServerFacade.git`, branch
-    `feature/non-singleton`)
+    `release/0.3.0`)
 
 EXTERNAL SOURCES:
   HNKServerFacade:
-    :branch: feature/non-singleton
+    :branch: release/0.3.0
     :git: https://github.com/hkellaway/HNKServerFacade.git
 
 CHECKOUT OPTIONS:
   HNKServerFacade:
-    :commit: bff49f0908ffbb190a5f07fb60f3e32200cf1f16
+    :commit: 3d864c598b4f04b65ede73777995990706d29f48
     :git: https://github.com/hkellaway/HNKServerFacade.git
 
 SPEC CHECKSUMS:
   AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
-  HNKServerFacade: 54102383a22b3aa61171574ad0b50ff24fd504cd
+  HNKServerFacade: 0fa3839353480b8862563a34903ad1406a38b4c9
 
 COCOAPODS: 0.37.1

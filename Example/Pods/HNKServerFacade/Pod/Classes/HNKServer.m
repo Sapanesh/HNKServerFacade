@@ -31,19 +31,23 @@
 static NSString *const kHNKExceptionInvalidInitializer = @"HNKExceptionInvalidInitializer";
 static NSString *const kHNKExceptionTextInvalidInitializer = @"-initWithBaseURL: should be used for Server initialization";
 
+@interface HNKServer ()
+
+@property (nonatomic, copy) NSString *baseURLStr;
+@property (nonatomic, strong) AFHTTPSessionManager *httpSessionManager;
+
+@end
+
 @implementation HNKServer
 
 #pragma mark - Initialization
-
-static NSString *baseURLStr = nil;
-static AFHTTPSessionManager *httpSessionManager = nil;
 
 - (instancetype)initWithBaseURL:(NSString *)baseUrlString
 {
     self = [super init];
     
     if(self) {
-        baseURLStr = [[NSURL URLWithString:baseUrlString] absoluteString];
+        self.baseURLStr = [[NSURL URLWithString:baseUrlString] absoluteString];
         
         [self setupHttpSessionManager];
         [self setupNetworkActivityIndicator];
@@ -65,7 +69,7 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 
 - (NSString *)baseURLString
 {
-    return baseURLStr;
+    return self.baseURLStr.copy;
 }
 
 - (BOOL)isNetworkActivityIndicatorEnabled
@@ -75,7 +79,7 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 
 - (NSSet *)responseContentTypes
 {
-    return httpSessionManager.responseSerializer.acceptableContentTypes;
+    return self.httpSessionManager.responseSerializer.acceptableContentTypes;
 }
 
 #pragma mark Configuration
@@ -84,7 +88,7 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 {
     NSParameterAssert(newContentTypes);
     
-    httpSessionManager.responseSerializer.acceptableContentTypes =
+    self.httpSessionManager.responseSerializer.acceptableContentTypes =
     newContentTypes;
 }
 
@@ -96,30 +100,30 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 {
     NSString *urlString = [self urlStringFromPath:path];
     
-    [httpSessionManager GET:urlString
-                 parameters:parameters
-                    success:^(NSURLSessionDataTask *task, id responseObject) {
-                        if (completion) {
-                            completion(responseObject, nil);
-                        }
-                    }
-                    failure:^(NSURLSessionDataTask *task, NSError *error) {
-                        if (completion) {
-                            completion(nil, error);
-                        }
-                    }];
+    [self.httpSessionManager GET:urlString
+                      parameters:parameters
+                         success:^(NSURLSessionDataTask *task, id responseObject) {
+                             if (completion) {
+                                 completion(responseObject, nil);
+                             }
+                         }
+                         failure:^(NSURLSessionDataTask *task, NSError *error) {
+                             if (completion) {
+                                 completion(nil, error);
+                             }
+                         }];
 }
 
 #pragma mark - Helpers
 
 - (void)setupHttpSessionManager
 {
-    if (httpSessionManager == nil) {
-        httpSessionManager = [[AFHTTPSessionManager alloc]
-                              initWithBaseURL:[NSURL URLWithString:baseURLStr]];
+    if (self.httpSessionManager == nil) {
+        self.httpSessionManager = [[AFHTTPSessionManager alloc]
+                                   initWithBaseURL:[NSURL URLWithString:self.baseURLStr]];
     }
     
-    httpSessionManager.responseSerializer.acceptableContentTypes =
+    self.httpSessionManager.responseSerializer.acceptableContentTypes =
     [NSSet setWithObject:@"application/json"];
 }
 
@@ -130,7 +134,7 @@ static AFHTTPSessionManager *httpSessionManager = nil;
 
 - (NSString *)urlStringFromPath:(NSString *)path
 {
-    return [baseURLStr stringByAppendingPathComponent:path];
+    return [self.baseURLStr stringByAppendingPathComponent:path];
 }
 
 @end
