@@ -11,7 +11,7 @@ Simple server interface for iOS
 #### Podfile
 
 ```ruby
-pod "HNKServerFacade", "~> 0.2"
+pod "HNKServerFacade", "~> 0.3"
 ```
 
 ## Credits

@@ -3,7 +3,7 @@
 
 target 'HNKServerFacade-Example' do
 
-pod 'HNKServerFacade', :git => 'https://github.com/hkellaway/HNKServerFacade.git', :branch => 'feature/non-singleton'
+pod 'HNKServerFacade', :git => 'https://github.com/hkellaway/HNKServerFacade.git', :branch => 'release/0.3.0'
 
 end
 
