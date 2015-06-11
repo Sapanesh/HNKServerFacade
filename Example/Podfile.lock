@@ -41,4 +41,4 @@ SPEC CHECKSUMS:
   AFNetworking: fefbce9660acb17f48ae0011292d4da0f457bf36
   HNKServerFacade: ffb9825fcacf8b418ac04fb5ee44e51d34f76f66
 
-COCOAPODS: 0.36.3
+COCOAPODS: 0.37.1

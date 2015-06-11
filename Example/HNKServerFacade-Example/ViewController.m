@@ -20,16 +20,16 @@
 {
   [super viewDidLoad];
 
-  [HNKServer setupWithBaseUrl:@"http://harlankellaway.com/documents/projects"];
+  HNKServer *developmentServer = [[HNKServer alloc] initWithBaseURL:@"http://harlankellaway.com/documents/projects"];
+    
+  NSLog(@"Initial response content types: %@", developmentServer.responseContentTypes);
 
-  NSLog(@"Initial response content types: %@", [HNKServer responseContentTypes]);
-
-  [HNKServer
+  [developmentServer
       configureResponseContentTypes:[NSSet setWithObjects:@"application/json", @"text/html", nil]];
 
-  NSLog(@"Content types after override: %@", [HNKServer responseContentTypes]);
+  NSLog(@"Content types after override: %@", developmentServer.responseContentTypes);
 
-  [HNKServer GET:@"test.json"
+  [developmentServer GET:@"test.json"
       parameters:nil
       completion:^(id responseObject, NSError *error) {
 

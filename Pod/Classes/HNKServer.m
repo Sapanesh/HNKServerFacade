@@ -35,81 +35,90 @@
 static NSString *baseURLStr = nil;
 static AFHTTPSessionManager *httpSessionManager = nil;
 
-+ (void)setupWithBaseUrl:(NSString *)baseURLString {
-  static dispatch_once_t onceToken;
-
-  dispatch_once(&onceToken, ^{
-    NSParameterAssert(baseURLString);
-
-    baseURLStr = [[NSURL URLWithString:baseURLString] absoluteString];
-
-    [self setupHttpSessionManager];
-    [self setupNetworkActivityIndicator];
-  });
+- (instancetype)initWithBaseURL:(NSString *)baseUrlString
+{
+    self = [super init];
+    
+    if(self) {
+        baseURLStr = [[NSURL URLWithString:baseUrlString] absoluteString];
+        
+        [self setupHttpSessionManager];
+        [self setupNetworkActivityIndicator];
+    }
+    
+    return self;
 }
 
 #pragma mark - Class methods
 
-+ (NSString *)baseURLString {
-  return baseURLStr;
+- (NSString *)baseURLString
+{
+    return baseURLStr;
 }
 
-+ (BOOL)isNetworkActivityIndicatorEnabled {
-  return [AFNetworkActivityIndicatorManager sharedManager].isEnabled;
+- (BOOL)isNetworkActivityIndicatorEnabled
+{
+    return [AFNetworkActivityIndicatorManager sharedManager].isEnabled;
 }
 
-+ (NSSet *)responseContentTypes {
-  return httpSessionManager.responseSerializer.acceptableContentTypes;
+- (NSSet *)responseContentTypes
+{
+    return httpSessionManager.responseSerializer.acceptableContentTypes;
 }
 
 #pragma mark Configuration
 
-+ (void)configureResponseContentTypes:(NSSet *)newContentTypes {
-  NSParameterAssert(newContentTypes);
-
-  httpSessionManager.responseSerializer.acceptableContentTypes =
-      newContentTypes;
+- (void)configureResponseContentTypes:(NSSet *)newContentTypes
+{
+    NSParameterAssert(newContentTypes);
+    
+    httpSessionManager.responseSerializer.acceptableContentTypes =
+    newContentTypes;
 }
 
 #pragma mark Requests
 
-+ (void)GET:(NSString *)path
-    parameters:(NSDictionary *)parameters
-    completion:(void (^)(id responseObject, NSError *))completion {
-  NSString *urlString = [self urlStringFromPath:path];
-
-  [httpSessionManager GET:urlString
-      parameters:parameters
-      success:^(NSURLSessionDataTask *task, id responseObject) {
-        if (completion) {
-          completion(responseObject, nil);
-        }
-      }
-      failure:^(NSURLSessionDataTask *task, NSError *error) {
-        if (completion) {
-          completion(nil, error);
-        }
-      }];
+- (void)GET:(NSString *)path
+ parameters:(NSDictionary *)parameters
+ completion:(void (^)(id responseObject, NSError *))completion
+{
+    NSString *urlString = [self urlStringFromPath:path];
+    
+    [httpSessionManager GET:urlString
+                 parameters:parameters
+                    success:^(NSURLSessionDataTask *task, id responseObject) {
+                        if (completion) {
+                            completion(responseObject, nil);
+                        }
+                    }
+                    failure:^(NSURLSessionDataTask *task, NSError *error) {
+                        if (completion) {
+                            completion(nil, error);
+                        }
+                    }];
 }
 
 #pragma mark - Helpers
 
-+ (void)setupHttpSessionManager {
-  if (httpSessionManager == nil) {
-    httpSessionManager = [[AFHTTPSessionManager alloc]
-        initWithBaseURL:[NSURL URLWithString:baseURLStr]];
-  }
-
-  httpSessionManager.responseSerializer.acceptableContentTypes =
-      [NSSet setWithObject:@"application/json"];
+- (void)setupHttpSessionManager
+{
+    if (httpSessionManager == nil) {
+        httpSessionManager = [[AFHTTPSessionManager alloc]
+                              initWithBaseURL:[NSURL URLWithString:baseURLStr]];
+    }
+    
+    httpSessionManager.responseSerializer.acceptableContentTypes =
+    [NSSet setWithObject:@"application/json"];
 }
 
-+ (void)setupNetworkActivityIndicator {
-  [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
+- (void)setupNetworkActivityIndicator
+{
+    [AFNetworkActivityIndicatorManager sharedManager].enabled = YES;
 }
 
-+ (NSString *)urlStringFromPath:(NSString *)path {
-  return [baseURLStr stringByAppendingPathComponent:path];
+- (NSString *)urlStringFromPath:(NSString *)path
+{
+    return [baseURLStr stringByAppendingPathComponent:path];
 }
 
 @end
