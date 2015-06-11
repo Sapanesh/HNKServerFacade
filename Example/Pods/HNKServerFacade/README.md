@@ -15,7 +15,7 @@ pod "HNKServerFacade", "~> 0.2"
 
 ## Credits
 
-HNKServerFacade was created by [Harlan Kellaway](http://harlankellaway.com) with inspiration from http://supermar.in/isolating-network-inside-your-app/
+HNKServerFacade was created by [Harlan Kellaway](http://harlankellaway.com) with inspiration from http://supermar.in/isolating-network-inside-your-app
 
 ## License
 
