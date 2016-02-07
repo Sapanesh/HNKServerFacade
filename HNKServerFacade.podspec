@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = "HNKServerFacade"
-  s.version      = "0.3.0"
+  s.version      = "0.3.0-deprecated"
   s.summary      = "Simple server interface for iOS"
   s.homepage     = "https://github.com/hkellaway/HNKServerFacade"
   s.license      = { :type => "MIT", :file => "LICENSE" }
@@ -13,5 +13,7 @@ Pod::Spec.new do |s|
   s.source_files  = 'Pod/Classes'
 
   s.dependency "AFNetworking", "~> 2.5"
+
+  s.deprecated = true
 
 end
